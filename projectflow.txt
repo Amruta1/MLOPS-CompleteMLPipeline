@@ -35,9 +35,15 @@ also add that load params code in some files ingestion feature eng and model bui
 with help of dvc
 so in yaml you are automating these pipeline execuation
 
+
+
+
+there are mlops tools helps in experiment tracking. there are many tools other than dvc first we learn  with dvc
 Expermients with DVC:
 12> pip install dvclive
-13> Add the dvclive code block (mentioned below)
+13> Add the dvclive code block (mentioned below) in model evaluations
+install dvc extention in vscode
+you can change params.yaml values and run experiment
 14> Do "dvc exp run", it will create a new dvc.yaml(if already not there) and dvclive directory (each run will be considered as an experiment by DVC)
 15> Do "dvc exp show" on terminal to see the experiments or use extension on VSCode (install dvc extension)
 16> Do "dvc exp remove {exp-name}" to remove exp (optional) | "dvc exp apply {exp-name}" to reproduce prev exp
@@ -97,7 +103,7 @@ dvclive code block:
 1> import dvclive and yaml:
 from dvclive import Live
 import yaml
-2> Add the load_params function and initiate "params" var in main
+2> Add the load_params function and initiate "params" var in main--params = load_params(params_path='params.yaml')
 3> Add below code block to main:
 with Live(save_dvc_exp=True) as live:
     live.log_metric('accuracy', accuracy_score(y_test, y_test))
