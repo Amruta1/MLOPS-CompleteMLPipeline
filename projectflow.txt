@@ -15,9 +15,20 @@ after this you will get dvc.lock file wheere you will get one hash value for eve
 so you need to commit this with git do that whenever you roll back that stage will be rolled or restored
 7> Now git add, commit, push
 
+whatever you have written those configuration params like test_size and all you may change it later so better practice it to store in one file
+
 Setting up dcv pipeline (with params)
 8> add params.yaml file
 9> Add the params setup (mentioned below)
+data_ingestion:
+  test_size: 0.20
+feature_engineering:
+  max_features: 50
+model_building:
+  n_estimators: 25
+  random_state: 2
+
+also add that load params code in some files ingestion feature eng and model building
 10> Do "dvc repro" again to test the pipeline along with the params
 11> Now git add, commit, push
 
@@ -34,7 +45,7 @@ Expermients with DVC:
 18> Now git add, commit, push
 
 
-
+Adding remote s3 storage to dvc
 
 
 
@@ -75,6 +86,8 @@ max_features = params['feature_engineering']['max_features']
 
 # model_building
 params = load_params('params.yaml')['model_building']
+
+also add params in dvc.yaml
 
 -------------------------------------------------------------------------------
 
