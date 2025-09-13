@@ -3,10 +3,16 @@ Building Pipeline:
 2> Add src folder along with all components(run them individually).
 3> Add data, models, reports directories to .gitignore file---coz we dont want this to be tracked by git as size may be too long we will track it by dvc
 4> Now git add, commit, push
+git add .
+git commit -m "pipeline ready with all component"
+git push origin main
 
 Setting up dcv pipeline (without params)
 5> Create dvc.yaml file and add stages to it.
-6> dvc init then do "dvc repro" to test the pipeline automation. (check dvc dag)
+without dvc you cant run yaml or pipeline
+6> 'dvc init' then do "dvc repro" to test the pipeline automation. (check dvc dag--it vizualises pipeline(directed acyclic grapgh))---python -m dvc init
+after this you will get dvc.lock file wheere you will get one hash value for every stage and its output
+so you need to commit this with git do that whenever you roll back that stage will be rolled or restored
 7> Now git add, commit, push
 
 Setting up dcv pipeline (with params)
@@ -14,6 +20,9 @@ Setting up dcv pipeline (with params)
 9> Add the params setup (mentioned below)
 10> Do "dvc repro" again to test the pipeline along with the params
 11> Now git add, commit, push
+
+with help of dvc
+so in yaml you are automating these pipeline execuation
 
 Expermients with DVC:
 12> pip install dvclive
