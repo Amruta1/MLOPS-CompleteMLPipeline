@@ -42,8 +42,6 @@ there are mlops tools helps in experiment tracking. there are many tools other t
 Expermients with DVC:
 12> pip install dvclive
 13> Add the dvclive code block (mentioned below) in model evaluations
-install dvc extention in vscode
-you can change params.yaml values and run experiment
 14> Do "dvc exp run", it will create a new dvc.yaml(if already not there) and dvclive directory (each run will be considered as an experiment by DVC)
 15> Do "dvc exp show" on terminal to see the experiments or use extension on VSCode (install dvc extension)
 16> Do "dvc exp remove {exp-name}" to remove exp (optional) | "dvc exp apply {exp-name}" to reproduce prev exp
@@ -53,7 +51,27 @@ you can change params.yaml values and run experiment
 
 Adding remote s3 storage to dvc
 
+1. create i am user in aws
+2. In that acreate access key
+3. create s3 bucket
+4. pip install dvc[s3]-- connects dvc with s3
+5. pip install awscli
+6. aws configure--on terminal
+7. dvc remote add -d dvcstore[anyname] s3://bucketname---check config file of .dvc
+now you check which experiment output you want to push using dvc exp apply exp-name
 
+also remember when yo add outs in dvc.yaml whatever is there it is tracked by dvc
+8. dvc commit push the experiment
+dvc commit
+in s3 bucket is empty
+9.now dvc push 
+so whatever is there is outs of dvc yaml that is stored in s3
+10. finally git add commit push
+
+check if error
+pip install --upgrade boto3 botocore
+pip install --upgrade "dvc[s3]"
+pip show boto3 botocore dvc
 
 
 
