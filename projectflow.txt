@@ -73,7 +73,11 @@ pip install --upgrade boto3 botocore
 pip install --upgrade "dvc[s3]"
 pip show boto3 botocore dvc
 
+extras:(for you coz bill should not come)
+1. remove /delete aws resources-- delete bucket, iam user
 
+2. you can write mannaly stages in dvc.yaml or through command
+dvc stage add -n data_ingestion -d src/data_ingestion.py -o data/raw python src/data_ingestion.py....etc
 
 
 
